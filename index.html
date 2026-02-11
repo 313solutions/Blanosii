@@ -4,43 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blănoșii Fericiți - Toaletaj Profesional</title>
-    
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         body { font-family: 'Inter', sans-serif; }
         html { scroll-behavior: smooth; }
-        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .glass { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); }
         
-        /* Animatie pentru social media */
-        .social-icon:hover { transform: translateY(-3px); }
+        /* Stil pentru scrollbar personalizat in modal */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased relative">
+<body class="bg-gray-50 text-gray-800 antialiased">
 
-    <nav class="fixed w-full z-40 top-0 left-0 glass shadow-sm transition-all duration-300">
+    <nav class="fixed w-full z-40 top-0 left-0 glass shadow-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
             
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 bg-cyan-500 rounded-full flex items-center justify-center text-white text-xl group-hover:scale-110 transition">
+            <a href="#" class="flex items-center gap-3 hover:opacity-80 transition">
+                <div class="w-10 h-10 bg-cyan-500 rounded-full flex items-center justify-center text-white text-xl shadow-md">
                     <i class="fa-solid fa-paw"></i>
                 </div>
-                <div>
-                    <h1 class="text-xl font-bold leading-none text-gray-900">Blănoșii Fericiți</h1>
-                    <span class="text-xs text-cyan-600 font-medium">Toaletaj Profesional</span>
+                <div class="leading-tight">
+                    <h1 class="text-lg font-extrabold text-gray-900 tracking-tight">Blănoșii Fericiți</h1>
+                    <span class="text-[10px] text-cyan-600 font-bold uppercase tracking-wider">Toaletaj Profesional</span>
                 </div>
             </a>
 
-            <div class="hidden md:flex items-center gap-8 font-medium text-gray-600">
+            <div class="hidden md:flex items-center gap-8 font-semibold text-sm text-gray-600">
                 <a href="#acasa" class="hover:text-cyan-600 transition">Acasă</a>
                 <a href="#servicii" class="hover:text-cyan-600 transition">Servicii</a>
                 <a href="#despre" class="hover:text-cyan-600 transition">Despre Noi</a>
                 <a href="#contact" class="hover:text-cyan-600 transition">Contact</a>
-                <button onclick="toggleModal()" class="bg-cyan-600 text-white px-6 py-2.5 rounded-full hover:bg-cyan-700 transition shadow-lg transform hover:-translate-y-0.5 font-bold flex items-center gap-2">
-                    <i class="fa-regular fa-calendar-check"></i> Programează-te
+                
+                <button onclick="toggleModal()" class="bg-cyan-600 text-white px-5 py-2.5 rounded-full hover:bg-cyan-700 transition shadow-lg hover:shadow-cyan-500/30 transform hover:-translate-y-0.5 flex items-center gap-2">
+                    <i class="fa-regular fa-calendar-check"></i> 
+                    <span>Programează-te</span>
                 </button>
             </div>
 
@@ -49,142 +52,173 @@
             </button>
         </div>
 
-        <div id="mobileMenu" class="hidden bg-white border-t md:hidden flex flex-col p-6 gap-4 shadow-xl absolute w-full">
-            <a href="#acasa" onclick="toggleMenu()" class="text-lg font-medium py-2 border-b border-gray-100">Acasă</a>
-            <a href="#servicii" onclick="toggleMenu()" class="text-lg font-medium py-2 border-b border-gray-100">Servicii</a>
-            <a href="#despre" onclick="toggleMenu()" class="text-lg font-medium py-2 border-b border-gray-100">Despre Noi</a>
+        <div id="mobileMenu" class="hidden absolute top-20 left-0 w-full bg-white border-t border-gray-100 shadow-xl flex flex-col p-6 gap-4 animate-fade-in-down z-30">
+            <a href="#acasa" onclick="toggleMenu()" class="text-lg font-medium py-2 border-b border-gray-50">Acasă</a>
+            <a href="#servicii" onclick="toggleMenu()" class="text-lg font-medium py-2 border-b border-gray-50">Servicii</a>
+            <a href="#despre" onclick="toggleMenu()" class="text-lg font-medium py-2 border-b border-gray-50">Despre Noi</a>
             <a href="#contact" onclick="toggleMenu()" class="text-lg font-medium py-2">Contact</a>
-            <button onclick="toggleModal(); toggleMenu()" class="bg-cyan-600 text-white w-full py-3 rounded-lg font-bold mt-2">
-                Programează-te Acum
+            <button onclick="toggleModal(); toggleMenu()" class="bg-cyan-600 text-white w-full py-4 rounded-xl font-bold mt-2 shadow-lg">
+                Programează-te Online
             </button>
         </div>
     </nav>
 
-    <header id="acasa" class="relative pt-32 pb-20 min-h-[90vh] flex items-center overflow-hidden">
+    <header id="acasa" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1583511655826-05700d52f4d9?q=80&w=1920&auto=format&fit=crop" 
                  class="w-full h-full object-cover object-center" 
-                 alt="Caine fericit">
-            <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
+                 alt="Caine fericit la toaletaj">
+            <div class="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent sm:via-white/70"></div>
         </div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full py-12 md:py-0">
             <div class="max-w-2xl">
-                <div class="inline-flex items-center gap-2 bg-cyan-50 px-4 py-2 rounded-full mb-6 border border-cyan-100 shadow-sm">
-                    <i class="fa-solid fa-star text-cyan-500"></i>
-                    <span class="text-sm font-bold text-cyan-800">Salon Premium în Sectorul 2</span>
+                <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur px-4 py-2 rounded-full mb-8 border border-cyan-100 shadow-sm animate-fade-in-up">
+                    <i class="fa-solid fa-star text-yellow-400"></i>
+                    <span class="text-sm font-bold text-gray-800">Salon Premium în Sectorul 4</span>
                 </div>
                 
-                <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900 mb-6 leading-tight">
-                    Răsfăț complet pentru <span class="text-cyan-600">prietenul tău</span>.
+                <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900 mb-6 leading-[1.1] tracking-tight">
+                    Răsfăț complet pentru <span class="text-cyan-600">prietenul tău</span> cel mai bun.
                 </h1>
                 
-                <p class="text-xl text-gray-700 mb-8 leading-relaxed font-medium">
+                <p class="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed max-w-lg font-medium">
                     Servicii profesionale de toaletaj canin și felin. 
                     Echipa noastră tratează fiecare animal cu răbdare, într-un mediu sigur și relaxant.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <button onclick="toggleModal()" class="bg-cyan-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-cyan-700 transition shadow-lg text-center flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-calendar-check"></i> Programează-te
-                    </button>
-                    <a href="#servicii" class="bg-white text-gray-800 border-2 border-gray-200 px-8 py-4 rounded-xl font-bold text-lg hover:border-cyan-500 hover:text-cyan-600 transition text-center">
-                        Vezi Prețuri
+                    <a href="tel:0721234567" class="group bg-gray-900 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-800 transition shadow-xl hover:shadow-2xl flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-phone group-hover:animate-pulse"></i> 
+                        Sună Acum
+                    </a>
+                    
+                    <a href="#servicii" class="bg-white text-gray-800 border border-gray-200 px-8 py-4 rounded-xl font-bold text-lg hover:border-cyan-500 hover:text-cyan-600 hover:bg-cyan-50 transition flex items-center justify-center">
+                        Vezi Serviciile
                     </a>
                 </div>
 
-                <div class="mt-12 flex gap-8 border-t border-gray-300 pt-8">
+                <div class="mt-16 flex items-center gap-10 border-t border-gray-200/60 pt-8">
                     <div>
-                        <p class="text-3xl font-bold text-gray-900">500+</p>
-                        <p class="text-sm text-gray-600">Clienți Fericiți</p>
+                        <p class="text-3xl font-black text-gray-900">500+</p>
+                        <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Clienți</p>
                     </div>
+                    <div class="h-10 w-px bg-gray-300"></div>
                     <div>
-                        <p class="text-3xl font-bold text-gray-900">5.0</p>
-                        <p class="text-sm text-gray-600">Recenzii Google</p>
+                        <p class="text-3xl font-black text-gray-900">5.0</p>
+                        <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Recenzii</p>
+                    </div>
+                    <div class="h-10 w-px bg-gray-300"></div>
+                    <div>
+                        <p class="text-3xl font-black text-gray-900">10+</p>
+                        <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Ani Experiență</p>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <section id="servicii" class="py-24 bg-white">
+    <section id="servicii" class="py-24 bg-white relative">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 max-w-2xl mx-auto">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Serviciile Noastre</h2>
-                <p class="text-gray-600 text-lg">Folosim doar produse premium și echipamente sterile pentru siguranța blănosului tău.</p>
+            <div class="text-center mb-20">
+                <span class="text-cyan-600 font-bold tracking-wider uppercase text-sm">Ce oferim</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4">Serviciile Noastre</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">Folosim doar produse premium bio și echipamente sterile pentru siguranța și sănătatea blănosului tău.</p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:border-cyan-400 transition hover:shadow-xl group cursor-pointer" onclick="toggleModal()">
-                    <div class="w-16 h-16 bg-white rounded-xl flex items-center justify-center text-3xl text-cyan-500 shadow-sm mb-6 group-hover:scale-110 transition">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="group bg-gray-50 rounded-2xl p-8 hover:bg-white border border-gray-100 hover:border-cyan-200 transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(6,182,212,0.15)] cursor-pointer" onclick="toggleModal()">
+                    <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-2xl text-cyan-600 shadow-sm mb-6 group-hover:scale-110 group-hover:bg-cyan-600 group-hover:text-white transition-all duration-300">
                         <i class="fa-solid fa-scissors"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Tuns Complet</h3>
-                    <p class="text-gray-500 mb-4 text-sm">Tuns din foarfecă sau mașină, adaptat rasei.</p>
-                    <div class="text-2xl font-bold text-cyan-700">100 RON</div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">Tuns Complet</h3>
+                    <p class="text-gray-500 text-sm mb-6 leading-relaxed">Tuns din foarfecă sau mașină, adaptat standardului rasei.</p>
+                    <div class="flex items-center justify-between border-t border-gray-200 pt-4 group-hover:border-gray-100">
+                        <span class="font-bold text-cyan-700 text-lg">100 RON</span>
+                        <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-cyan-500 transition"></i>
+                    </div>
                 </div>
 
-                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:border-cyan-400 transition hover:shadow-xl group cursor-pointer" onclick="toggleModal()">
-                    <div class="w-16 h-16 bg-white rounded-xl flex items-center justify-center text-3xl text-cyan-500 shadow-sm mb-6 group-hover:scale-110 transition">
+                <div class="group bg-gray-50 rounded-2xl p-8 hover:bg-white border border-gray-100 hover:border-cyan-200 transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(6,182,212,0.15)] cursor-pointer" onclick="toggleModal()">
+                    <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-2xl text-cyan-600 shadow-sm mb-6 group-hover:scale-110 group-hover:bg-cyan-600 group-hover:text-white transition-all duration-300">
                         <i class="fa-solid fa-shower"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Spălat & Coafat</h3>
-                    <p class="text-gray-500 mb-4 text-sm">Șampoane hipoalergenice și uscare rapidă.</p>
-                    <div class="text-2xl font-bold text-cyan-700">80 RON</div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">Spălat & Coafat</h3>
+                    <p class="text-gray-500 text-sm mb-6 leading-relaxed">Șampoane hipoalergenice profesionale și uscare rapidă.</p>
+                    <div class="flex items-center justify-between border-t border-gray-200 pt-4 group-hover:border-gray-100">
+                        <span class="font-bold text-cyan-700 text-lg">80 RON</span>
+                        <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-cyan-500 transition"></i>
+                    </div>
                 </div>
 
-                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:border-cyan-400 transition hover:shadow-xl group cursor-pointer" onclick="toggleModal()">
-                    <div class="w-16 h-16 bg-white rounded-xl flex items-center justify-center text-3xl text-cyan-500 shadow-sm mb-6 group-hover:scale-110 transition">
+                <div class="group bg-gray-50 rounded-2xl p-8 hover:bg-white border border-gray-100 hover:border-cyan-200 transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(6,182,212,0.15)] cursor-pointer" onclick="toggleModal()">
+                    <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-2xl text-cyan-600 shadow-sm mb-6 group-hover:scale-110 group-hover:bg-cyan-600 group-hover:text-white transition-all duration-300">
                         <i class="fa-solid fa-paw"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Tăiat Unghii</h3>
-                    <p class="text-gray-500 mb-4 text-sm">Pedichiură completă pentru sănătate.</p>
-                    <div class="text-2xl font-bold text-cyan-700">30 RON</div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">Tăiat Unghii</h3>
+                    <p class="text-gray-500 text-sm mb-6 leading-relaxed">Pedichiură completă pentru sănătatea lăbuțelor.</p>
+                    <div class="flex items-center justify-between border-t border-gray-200 pt-4 group-hover:border-gray-100">
+                        <span class="font-bold text-cyan-700 text-lg">30 RON</span>
+                        <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-cyan-500 transition"></i>
+                    </div>
                 </div>
 
-                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:border-cyan-400 transition hover:shadow-xl group cursor-pointer" onclick="toggleModal()">
-                    <div class="w-16 h-16 bg-white rounded-xl flex items-center justify-center text-3xl text-cyan-500 shadow-sm mb-6 group-hover:scale-110 transition">
+                <div class="group bg-gray-50 rounded-2xl p-8 hover:bg-white border border-gray-100 hover:border-cyan-200 transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(6,182,212,0.15)] cursor-pointer" onclick="toggleModal()">
+                    <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-2xl text-cyan-600 shadow-sm mb-6 group-hover:scale-110 group-hover:bg-cyan-600 group-hover:text-white transition-all duration-300">
                         <i class="fa-solid fa-heart-pulse"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Igienă Urechi</h3>
-                    <p class="text-gray-500 mb-4 text-sm">Curățare delicată pentru prevenire infecții.</p>
-                    <div class="text-2xl font-bold text-cyan-700">30 RON</div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">Igienă Urechi</h3>
+                    <p class="text-gray-500 text-sm mb-6 leading-relaxed">Curățare delicată pentru prevenirea infecțiilor.</p>
+                    <div class="flex items-center justify-between border-t border-gray-200 pt-4 group-hover:border-gray-100">
+                        <span class="font-bold text-cyan-700 text-lg">30 RON</span>
+                        <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-cyan-500 transition"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="despre" class="py-24 bg-cyan-50">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
-            <div class="md:w-1/2">
-                <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=800&q=80" 
-                     alt="Echipa noastra" 
-                     class="rounded-3xl shadow-2xl w-full rotate-2 hover:rotate-0 transition duration-500">
-            </div>
-            <div class="md:w-1/2">
-                <h2 class="text-4xl font-bold text-gray-900 mb-6">Pasiune înainte de toate</h2>
-                <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-                    La <strong>Blănoșii Fericiți</strong>, nu suntem doar frizeri, ci iubitori de animale. Am deschis acest salon din dorința de a oferi o experiență fără stres pentru căței și pisici.
-                </p>
-                <ul class="space-y-4 mb-8">
-                    <li class="flex items-center gap-3">
-                        <i class="fa-solid fa-check-circle text-cyan-600 text-xl"></i>
-                        <span>Personal Calificat și Certificat</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i class="fa-solid fa-check-circle text-cyan-600 text-xl"></i>
-                        <span>Produse 100% Bio</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i class="fa-solid fa-check-circle text-cyan-600 text-xl"></i>
-                        <span>Atmosferă Relaxantă</span>
-                    </li>
-                </ul>
+    <section id="despre" class="py-24 bg-cyan-50/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/2 relative">
+                    <div class="absolute inset-0 bg-cyan-200 rounded-3xl rotate-6 scale-95 opacity-50 blur-sm"></div>
+                    <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=800&q=80" 
+                         alt="Echipa noastra" 
+                         class="rounded-3xl shadow-2xl w-full relative z-10 hover:scale-[1.02] transition duration-500">
+                </div>
+                <div class="md:w-1/2">
+                    <span class="text-cyan-600 font-bold tracking-wider uppercase text-sm">Povestea noastră</span>
+                    <h2 class="text-4xl font-bold text-gray-900 mt-2 mb-6">Pasiune înainte de toate</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        La <strong>Blănoșii Fericiți</strong>, nu suntem doar frizeri, ci iubitori de animale. Am deschis acest salon din dorința de a oferi o experiență fără stres pentru căței și pisici.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-cyan-100 flex items-center justify-center text-cyan-600 flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Personal Certificat</h4>
+                                <p class="text-sm text-gray-500">Echipă cu diplome și training continuu.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-cyan-100 flex items-center justify-center text-cyan-600 flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-leaf"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Produse Bio</h4>
+                                <p class="text-sm text-gray-500">Șampoane și balsamuri naturale, fără parabeni.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer id="contact" class="bg-gray-900 text-gray-300 py-16">
+    <footer id="contact" class="bg-gray-900 text-gray-300 pt-20 pb-10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-4 gap-12 border-b border-gray-800 pb-12 mb-12">
                 
@@ -195,115 +229,149 @@
                         </div>
                         <h2 class="text-2xl font-bold text-white">Blănoșii Fericiți</h2>
                     </div>
-                    <p class="text-gray-400 text-sm mb-6">
-                        Profesionalism, curățenie și multă iubire pentru animale.
+                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">
+                        Salonul preferat al patrupezilor din București. Profesionalism, curățenie și multă iubire.
                     </p>
                     
-                    <div class="flex gap-4">
-                        <a href="https://facebook.com" target="_blank" class="social-icon w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center transition shadow-lg hover:bg-blue-700">
+                    <div class="flex gap-3">
+                        <a href="https://facebook.com" target="_blank" class="w-10 h-10 bg-gray-800 hover:bg-[#1877F2] text-white rounded-lg flex items-center justify-center transition-all duration-300">
                             <i class="fa-brands fa-facebook-f"></i>
                         </a>
-                        <a href="https://instagram.com" target="_blank" class="social-icon w-10 h-10 bg-pink-600 text-white rounded-full flex items-center justify-center transition shadow-lg hover:bg-pink-700">
+                        <a href="https://instagram.com" target="_blank" class="w-10 h-10 bg-gray-800 hover:bg-[#E4405F] text-white rounded-lg flex items-center justify-center transition-all duration-300">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
-                        <a href="https://tiktok.com" target="_blank" class="social-icon w-10 h-10 bg-black text-white rounded-full flex items-center justify-center transition shadow-lg hover:bg-gray-800 border border-gray-700">
+                        <a href="https://tiktok.com" target="_blank" class="w-10 h-10 bg-gray-800 hover:bg-black text-white rounded-lg flex items-center justify-center transition-all duration-300 border border-gray-700 hover:border-gray-500">
                             <i class="fa-brands fa-tiktok"></i>
                         </a>
                     </div>
                 </div>
 
-                <div>
+                <div class="md:col-span-1">
                     <h3 class="text-white font-bold text-lg mb-6">Contact</h3>
                     <ul class="space-y-4">
                         <li class="flex gap-3 items-start">
                             <i class="fa-solid fa-location-dot text-cyan-500 mt-1"></i>
-                            <span>Strada Florilor Nr. 45,<br>Sector 2, București</span>
+                            <span class="text-sm">Strada Florilor Nr. 45,<br>Sector 2, București</span>
                         </li>
                         <li class="flex gap-3 items-center">
                             <i class="fa-solid fa-phone text-cyan-500"></i>
-                            <a href="tel:0721234567" class="hover:text-white transition">0721 234 567</a>
+                            <a href="tel:0721234567" class="text-sm hover:text-white transition">0721 234 567</a>
                         </li>
                         <li class="flex gap-3 items-center">
                             <i class="fa-solid fa-envelope text-cyan-500"></i>
-                            <span>contact@blanosii.ro</span>
+                            <span class="text-sm">contact@blanosii.ro</span>
                         </li>
                     </ul>
                 </div>
 
-                <div>
+                <div class="md:col-span-2">
                     <h3 class="text-white font-bold text-lg mb-6">Program</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li class="flex justify-between border-b border-gray-800 pb-2">
-                            <span>Luni - Vineri</span>
-                            <span class="text-white font-medium">09:00 - 18:00</span>
-                        </li>
-                        <li class="flex justify-between border-b border-gray-800 pb-2">
-                            <span>Sâmbătă</span>
-                            <span class="text-white font-medium">10:00 - 15:00</span>
-                        </li>
-                        <li class="flex justify-between">
-                            <span>Duminică</span>
-                            <span class="text-red-400">Închis</span>
-                        </li>
-                    </ul>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-800 rounded-lg p-4 text-center">
+                            <span class="block text-gray-400 text-xs uppercase mb-1">Luni - Vineri</span>
+                            <span class="block text-white font-bold text-lg">09:00 - 18:00</span>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-4 text-center">
+                            <span class="block text-gray-400 text-xs uppercase mb-1">Sâmbătă</span>
+                            <span class="block text-white font-bold text-lg">10:00 - 15:00</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="text-center text-sm text-gray-600">
-                &copy; 2024 Blănoșii Fericiți. Toate drepturile rezervate.
+            <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
+                <p>&copy; 2024 Blănoșii Fericiți. Toate drepturile rezervate.</p>
+                <p class="mt-2 md:mt-0 opacity-50 hover:opacity-100 transition">Creat cu <i class="fa-solid fa-heart text-red-500 mx-1"></i> pentru animale.</p>
             </div>
         </div>
     </footer>
 
-    <div id="bookingModal" class="hidden fixed inset-0 bg-black/70 z-50 flex items-center justify-center backdrop-blur-sm p-4">
-        <div class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto flex flex-col md:flex-row shadow-2xl relative animate-fade-in-up">
-            
-            <button onclick="toggleModal()" class="absolute top-4 right-4 z-10 bg-gray-100 w-8 h-8 rounded-full flex items-center justify-center hover:bg-red-100 hover:text-red-600 transition">
-                <i class="fa-solid fa-times"></i>
-            </button>
+    <div id="bookingModal" class="hidden fixed inset-0 z-[60]" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        
+        <div class="fixed inset-0 bg-gray-900/80 backdrop-blur-sm transition-opacity" onclick="toggleModal()"></div>
 
-            <div class="md:w-1/3 bg-cyan-50 p-8 flex flex-col justify-center border-r border-cyan-100">
-                <h3 class="text-xl font-bold text-gray-900 mb-4">Contact Rapid</h3>
-                <p class="text-gray-600 text-sm mb-6">Ai o urgență sau preferi să vorbești direct?</p>
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
                 
-                <a href="tel:0721234567" class="flex items-center gap-3 w-full bg-cyan-600 text-white py-3 px-4 rounded-lg font-bold hover:bg-cyan-700 transition shadow-sm mb-3 text-sm">
-                    <i class="fa-solid fa-phone"></i> 0721 234 567
-                </a>
-                
-                <a href="https://wa.me/40721234567" target="_blank" class="flex items-center gap-3 w-full bg-green-500 text-white py-3 px-4 rounded-lg font-bold hover:bg-green-600 transition shadow-sm text-sm">
-                    <i class="fa-brands fa-whatsapp text-lg"></i> Scrie pe WhatsApp
-                </a>
-            </div>
+                <div class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-5xl h-[85vh] sm:h-[650px] flex flex-col md:flex-row">
+                    
+                    <button onclick="toggleModal()" class="absolute top-4 right-4 z-50 bg-white/20 hover:bg-white text-white hover:text-gray-900 md:text-gray-400 md:bg-transparent md:hover:bg-gray-100 p-2 rounded-full transition duration-200">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
 
-            <div class="md:w-2/3 p-4 h-[500px] md:h-auto min-h-[500px]">
-    <h3 class="text-xl font-bold text-gray-900 mb-2 px-4 pt-4">Selectează Ziua și Ora</h3>
-    <p class="text-gray-500 text-xs px-4 mb-4">Se sincronizează automat cu Google Calendar.</p>
-    
-    <div class="calendly-inline-widget" 
-         data-url="https://calendly.com/313choices" 
-         style="min-width:320px;height:100%;">
-    </div>
-    
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-</div>
-                
-                <div class="calendly-inline-widget" data-url="https://calendly.com/young-cook-test/programare-toaletaj" style="min-width:320px;height:100%;"></div>
-                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                    <div class="bg-cyan-600 text-white w-full md:w-[350px] flex-shrink-0 p-8 flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+                            <i class="fa-solid fa-paw text-[200px] absolute -top-10 -left-10 transform -rotate-12"></i>
+                        </div>
+
+                        <div class="relative z-10">
+                            <h3 class="text-2xl font-bold mb-2">Contact Rapid</h3>
+                            <p class="text-cyan-100 text-sm mb-8">Preferi să vorbim direct? Sună-ne sau scrie-ne!</p>
+                            
+                            <div class="space-y-4">
+                                <a href="tel:0721234567" class="flex items-center gap-4 bg-white/10 hover:bg-white/20 p-4 rounded-xl transition border border-white/10 group">
+                                    <div class="w-10 h-10 rounded-full bg-white text-cyan-600 flex items-center justify-center group-hover:scale-110 transition">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-cyan-200 uppercase font-bold">Sună-ne</p>
+                                        <p class="font-bold text-lg">0721 234 567</p>
+                                    </div>
+                                </a>
+
+                                <a href="https://wa.me/40721234567" target="_blank" class="flex items-center gap-4 bg-green-500/90 hover:bg-green-500 p-4 rounded-xl transition border border-white/10 group shadow-lg">
+                                    <div class="w-10 h-10 rounded-full bg-white text-green-600 flex items-center justify-center group-hover:scale-110 transition">
+                                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-green-100 uppercase font-bold">Scrie pe WhatsApp</p>
+                                        <p class="font-bold text-lg">Chat Rapid</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="relative z-10 text-xs text-cyan-200 mt-auto pt-8 border-t border-white/20">
+                            <p>Program: Luni - Sâmbătă</p>
+                            <p>Răspundem în aprox. 15 min.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex-1 bg-white flex flex-col h-full w-full relative">
+                        <div class="p-6 pb-0 border-b border-gray-100">
+                            <h3 class="text-xl font-bold text-gray-900">Alege o dată și o oră</h3>
+                            <p class="text-sm text-gray-500">Programarea se confirmă automat pe email.</p>
+                        </div>
+                        
+                        <div class="flex-1 w-full bg-gray-50 relative overflow-hidden">
+                             <div class="calendly-inline-widget" 
+                                  data-url="https://calendly.com/313choices?hide_landing_page_details=1&hide_gdpr_banner=1" 
+                                  style="min-width:320px;height:100%;width:100%;">
+                             </div>
+                             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
 
     <script>
         function toggleMenu() {
-            document.getElementById('mobileMenu').classList.toggle('hidden');
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
         }
+
         function toggleModal() {
-            document.getElementById('bookingModal').classList.toggle('hidden');
-        }
-        window.onclick = function(event) {
             const modal = document.getElementById('bookingModal');
-            if (event.target == modal) {
-                modal.classList.add('hidden');
+            modal.classList.toggle('hidden');
+            
+            // Blocheaza scroll-ul paginii cand modalul e deschis
+            if (!modal.classList.contains('hidden')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
             }
         }
     </script>
