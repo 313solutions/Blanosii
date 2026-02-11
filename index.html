@@ -1,0 +1,502 @@
+Aplicația rulează local. Să creez și fișierul HTML standalone așa cum ai cerut:
+Action: file_editor create /app/blanosii-fericiti-standalone.html --file-text "<!DOCTYPE html>
+<html lang=\"ro\">
+<head>
+    <meta charset=\"UTF-8\">
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+    <title>Blănoșii Fericiți - Toaletaj Profesional Canin și Felin</title>
+    
+    <!-- Tailwind CSS -->
+    <script src=\"https://cdn.tailwindcss.com\"></script>
+    
+    <!-- Font Awesome -->
+    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css\">
+    
+    <!-- Google Fonts -->
+    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">
+    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
+    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap\" rel=\"stylesheet\">
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(255,255,255,0.95), rgba(255,255,255,0.8), rgba(6,182,212,0.3));
+        }
+        
+        .gradient-text {
+            background: linear-gradient(to right, #0891b2, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to right, #06b6d4, #2563eb);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(to right, #0891b2, #1d4ed8);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+        }
+        
+        .card {
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .section-bg {
+            background: linear-gradient(to bottom, #ffffff, #ecfeff);
+        }
+    </style>
+</head>
+<body class=\"antialiased\">
+    
+    <!-- Header -->
+    <header class=\"fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm\">
+        <div class=\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8\">
+            <div class=\"flex justify-between items-center h-20\">
+                <!-- Logo -->
+                <div class=\"flex items-center space-x-3\">
+                    <div class=\"w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg\">
+                        <i class=\"fas fa-paw text-white text-2xl\"></i>
+                    </div>
+                    <div>
+                        <h1 class=\"text-2xl font-bold text-gray-900\">Blănoșii Fericiți</h1>
+                        <p class=\"text-xs text-cyan-600\">Toaletaj Profesional</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class=\"hidden md:flex items-center space-x-8\">
+                    <a href=\"#home\" class=\"text-gray-700 hover:text-cyan-600 font-medium transition-colors\">Acasă</a>
+                    <a href=\"#servicii\" class=\"text-gray-700 hover:text-cyan-600 font-medium transition-colors\">Servicii</a>
+                    <a href=\"#despre\" class=\"text-gray-700 hover:text-cyan-600 font-medium transition-colors\">Despre Noi</a>
+                    <a href=\"#contact\" class=\"text-gray-700 hover:text-cyan-600 font-medium transition-colors\">Contact</a>
+                    <a href=\"tel:+40721234567\" class=\"btn-primary text-white px-6 py-3 rounded-lg shadow-md font-semibold\">
+                        <i class=\"fas fa-phone mr-2\"></i>Programează-te
+                    </a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button onclick=\"toggleMobileMenu()\" class=\"md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors\">
+                    <i class=\"fas fa-bars text-gray-700 text-xl\"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <nav id=\"mobileMenu\" class=\"hidden md:hidden py-4 border-t border-gray-100\">
+                <div class=\"flex flex-col space-y-4\">
+                    <a href=\"#home\" class=\"text-gray-700 hover:text-cyan-600 font-medium transition-colors py-2\">Acasă</a>
+                    <a href=\"#servicii\" class=\"text-gray-700 hover:text-cyan-600 font-medium transition-colors py-2\">Servicii</a>
+                    <a href=\"#despre\" class=\"text-gray-700 hover:text-cyan-600 font-medium transition-colors py-2\">Despre Noi</a>
+                    <a href=\"#contact\" class=\"text-gray-700 hover:text-cyan-600 font-medium transition-colors py-2\">Contact</a>
+                    <a href=\"tel:+40721234567\" class=\"btn-primary text-white px-6 py-3 rounded-lg text-center font-semibold\">
+                        <i class=\"fas fa-phone mr-2\"></i>Programează-te
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section id=\"home\" class=\"relative min-h-screen flex items-center pt-20\">
+        <!-- Background Image -->
+        <div class=\"absolute inset-0 z-0\">
+            <img src=\"https://images.unsplash.com/photo-1656471536504-ebf1528d7fe9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwyfHxoYXBweSUyMGNsZWFuJTIwZG9nfGVufDB8fHxibHVlfDE3NzA4NDM0NjR8MA&ixlib=rb-4.1.0&q=85\" 
+                 alt=\"Happy dog\" class=\"w-full h-full object-cover\">
+            <div class=\"hero-overlay absolute inset-0\"></div>
+        </div>
+        
+        <!-- Content -->
+        <div class=\"relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20\">
+            <div class=\"max-w-2xl\">
+                <div class=\"inline-flex items-center space-x-2 bg-cyan-50 px-4 py-2 rounded-full mb-6\">
+                    <i class=\"fas fa-sparkles text-cyan-600\"></i>
+                    <span class=\"text-sm font-medium text-cyan-700\">Toaletaj Profesional de 10+ Ani</span>
+                </div>
+                
+                <h1 class=\"text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight\">
+                    Răsfăț complet pentru
+                    <span class=\"block gradient-text\">prietenul tău</span>
+                    <span class=\"block\">cel mai bun</span>
+                </h1>
+                
+                <p class=\"text-xl md:text-2xl text-gray-600 mb-10 leading-relaxed\">
+                    Servicii profesionale de toaletaj canin și felin într-un mediu relaxant și sigur. 
+                    Echipa noastră îți tratează animalul cu dragoste și grijă.
+                </p>
+                
+                <div class=\"flex flex-col sm:flex-row gap-4\">
+                    <a href=\"tel:+40721234567\" class=\"btn-primary text-white text-lg px-8 py-4 rounded-lg shadow-xl font-semibold text-center\">
+                        <i class=\"fas fa-phone mr-2\"></i>Sună acum
+                    </a>
+                    <a href=\"#servicii\" class=\"border-2 border-cyan-500 text-cyan-700 hover:bg-cyan-50 text-lg px-8 py-4 rounded-lg transition-all duration-300 font-semibold text-center\">
+                        Vezi serviciile
+                    </a>
+                </div>
+                
+                <!-- Trust Badges -->
+                <div class=\"mt-12 flex flex-wrap items-center gap-8\">
+                    <div class=\"flex items-center space-x-3\">
+                        <div class=\"w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center\">
+                            <i class=\"fas fa-check text-cyan-600 text-xl\"></i>
+                        </div>
+                        <div>
+                            <p class=\"text-sm font-semibold text-gray-900\">500+</p>
+                            <p class=\"text-xs text-gray-600\">Clienți Fericiți</p>
+                        </div>
+                    </div>
+                    <div class=\"flex items-center space-x-3\">
+                        <div class=\"w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center\">
+                            <i class=\"fas fa-star text-cyan-600 text-xl\"></i>
+                        </div>
+                        <div>
+                            <p class=\"text-sm font-semibold text-gray-900\">5.0/5.0</p>
+                            <p class=\"text-xs text-gray-600\">Rating Clienți</p>
+                        </div>
+                    </div>
+                    <div class=\"flex items-center space-x-3\">
+                        <div class=\"w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center\">
+                            <i class=\"fas fa-trophy text-cyan-600 text-xl\"></i>
+                        </div>
+                        <div>
+                            <p class=\"text-sm font-semibold text-gray-900\">10+ Ani</p>
+                            <p class=\"text-xs text-gray-600\">Experiență</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id=\"servicii\" class=\"section-bg py-20\">
+        <div class=\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8\">
+            <div class=\"text-center mb-16\">
+                <h2 class=\"text-4xl md:text-5xl font-bold text-gray-900 mb-4\">Serviciile Noastre</h2>
+                <p class=\"text-xl text-gray-600 max-w-2xl mx-auto\">
+                    Oferim o gamă completă de servicii de toaletaj profesional pentru prietenul tău păros
+                </p>
+            </div>
+            
+            <div class=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6\">
+                <!-- Service 1 -->
+                <div class=\"card bg-white rounded-2xl p-6 border-2 border-gray-100 hover:border-cyan-400\">
+                    <div class=\"w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center mb-4 shadow-lg\">
+                        <i class=\"fas fa-cut text-white text-2xl\"></i>
+                    </div>
+                    <h3 class=\"text-2xl font-bold text-gray-900 mb-2\">Tuns Complet</h3>
+                    <p class=\"text-gray-600 mb-4\">Tuns profesional adaptat rasei și preferințelor tale</p>
+                    <div class=\"flex items-center justify-between mb-4\">
+                        <span class=\"text-3xl font-bold text-cyan-600\">de la 100 RON</span>
+                    </div>
+                    <a href=\"tel:+40721234567\" class=\"btn-primary w-full text-white px-6 py-3 rounded-lg text-center font-semibold block\">
+                        Rezervă acum
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class=\"card bg-white rounded-2xl p-6 border-2 border-gray-100 hover:border-cyan-400\">
+                    <div class=\"w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center mb-4 shadow-lg\">
+                        <i class=\"fas fa-shower text-white text-2xl\"></i>
+                    </div>
+                    <h3 class=\"text-2xl font-bold text-gray-900 mb-2\">Spălat & Coafat</h3>
+                    <p class=\"text-gray-600 mb-4\">Baie relaxantă cu produse premium și coafat profesional</p>
+                    <div class=\"flex items-center justify-between mb-4\">
+                        <span class=\"text-3xl font-bold text-cyan-600\">de la 100 RON</span>
+                    </div>
+                    <a href=\"tel:+40721234567\" class=\"btn-primary w-full text-white px-6 py-3 rounded-lg text-center font-semibold block\">
+                        Rezervă acum
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class=\"card bg-white rounded-2xl p-6 border-2 border-gray-100 hover:border-cyan-400\">
+                    <div class=\"w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center mb-4 shadow-lg\">
+                        <i class=\"fas fa-hand-holding-heart text-white text-2xl\"></i>
+                    </div>
+                    <h3 class=\"text-2xl font-bold text-gray-900 mb-2\">Tăiat Unghii</h3>
+                    <p class=\"text-gray-600 mb-4\">Îngrijire profesională a ghearelor pentru confortul animalului</p>
+                    <div class=\"flex items-center justify-between mb-4\">
+                        <span class=\"text-3xl font-bold text-cyan-600\">de la 100 RON</span>
+                    </div>
+                    <a href=\"tel:+40721234567\" class=\"btn-primary w-full text-white px-6 py-3 rounded-lg text-center font-semibold block\">
+                        Rezervă acum
+                    </a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class=\"card bg-white rounded-2xl p-6 border-2 border-gray-100 hover:border-cyan-400\">
+                    <div class=\"w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center mb-4 shadow-lg\">
+                        <i class=\"fas fa-heart text-white text-2xl\"></i>
+                    </div>
+                    <h3 class=\"text-2xl font-bold text-gray-900 mb-2\">Curățat Urechi</h3>
+                    <p class=\"text-gray-600 mb-4\">Curățare delicată și profesională a urechilor</p>
+                    <div class=\"flex items-center justify-between mb-4\">
+                        <span class=\"text-3xl font-bold text-cyan-600\">de la 100 RON</span>
+                    </div>
+                    <a href=\"tel:+40721234567\" class=\"btn-primary w-full text-white px-6 py-3 rounded-lg text-center font-semibold block\">
+                        Rezervă acum
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Choose Us Section -->
+    <section id=\"despre\" class=\"py-20 bg-white\">
+        <div class=\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8\">
+            <div class=\"grid grid-cols-1 lg:grid-cols-2 gap-12 items-center\">
+                <div class=\"relative\">
+                    <img src=\"https://images.unsplash.com/photo-1497994187231-bc847a69dc76?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxoYXBweSUyMGNsZWFuJTIwZG9nfGVufDB8fHxibHVlfDE3NzA4NDM0NjR8MA&ixlib=rb-4.1.0&q=85\"
+                         alt=\"Well-groomed dog\"
+                         class=\"rounded-3xl shadow-2xl w-full h-[500px] object-cover\">
+                </div>
+                
+                <div>
+                    <h2 class=\"text-4xl md:text-5xl font-bold text-gray-900 mb-6\">
+                        De ce să alegi
+                        <span class=\"block gradient-text\">Blănoșii Fericiți?</span>
+                    </h2>
+                    <p class=\"text-xl text-gray-600 mb-10\">
+                        Suntem pasionați de îngrijirea animalelor de companie și oferim servicii de cea mai înaltă calitate într-un mediu sigur și confortabil.
+                    </p>
+                    
+                    <div class=\"space-y-6\">
+                        <div class=\"flex items-start space-x-4 p-5 bg-cyan-50 rounded-2xl\">
+                            <div class=\"w-14 h-14 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg\">
+                                <i class=\"fas fa-award text-white text-2xl\"></i>
+                            </div>
+                            <div>
+                                <h3 class=\"text-xl font-bold text-gray-900 mb-2\">10+ Ani Experiență</h3>
+                                <p class=\"text-gray-600\">Echipă cu expertiză vastă în îngrijirea animalelor de companie</p>
+                            </div>
+                        </div>
+                        
+                        <div class=\"flex items-start space-x-4 p-5 bg-cyan-50 rounded-2xl\">
+                            <div class=\"w-14 h-14 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg\">
+                                <i class=\"fas fa-shield-alt text-white text-2xl\"></i>
+                            </div>
+                            <div>
+                                <h3 class=\"text-xl font-bold text-gray-900 mb-2\">Echipament Steril</h3>
+                                <p class=\"text-gray-600\">Toate instrumentele sunt sterilizate după fiecare utilizare</p>
+                            </div>
+                        </div>
+                        
+                        <div class=\"flex items-start space-x-4 p-5 bg-cyan-50 rounded-2xl\">
+                            <div class=\"w-14 h-14 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg\">
+                                <i class=\"fas fa-heart text-white text-2xl\"></i>
+                            </div>
+                            <div>
+                                <h3 class=\"text-xl font-bold text-gray-900 mb-2\">Dragoste pentru Animale</h3>
+                                <p class=\"text-gray-600\">Tratăm fiecare animal cu răbdare și afecțiune</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class=\"section-bg py-20\">
+        <div class=\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8\">
+            <div class=\"text-center mb-16\">
+                <h2 class=\"text-4xl md:text-5xl font-bold text-gray-900 mb-4\">Ce spun clienții noștri</h2>
+                <p class=\"text-xl text-gray-600 max-w-2xl mx-auto\">
+                    Feedback autentic de la proprietarii fericiți de animale de companie
+                </p>
+            </div>
+            
+            <div class=\"grid grid-cols-1 md:grid-cols-3 gap-8\">
+                <!-- Testimonial 1 -->
+                <div class=\"card bg-white rounded-2xl p-6 border-2 border-gray-100\">
+                    <div class=\"flex mb-4\">
+                        <i class=\"fas fa-star text-yellow-400\"></i>
+                        <i class=\"fas fa-star text-yellow-400\"></i>
+                        <i class=\"fas fa-star text-yellow-400\"></i>
+                        <i class=\"fas fa-star text-yellow-400\"></i>
+                        <i class=\"fas fa-star text-yellow-400\"></i>
+                    </div>
+                    <p class=\"text-gray-700 mb-6 italic\">
+                        \"Echipa de la Blănoșii Fericiți este extraordinară! Max e mereu fericit când ajunge aici. Profesionalism și dragoste pentru animale!\"
+                    </p>
+                    <div class=\"flex items-center space-x-4 pt-4 border-t border-gray-100\">
+                        <img src=\"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop\" 
+                             alt=\"Maria Popescu\" 
+                             class=\"w-12 h-12 rounded-full object-cover\">
+                        <div>
+                            <p class=\"font-bold text-gray-900\">Maria Popescu</p>
+                            <p class=\"text-sm text-cyan-600\">Max (Golden Retriever)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class=\"card bg-white rounded-2xl p-6 border-2 border-gray-100\">
+                    <div class=\"flex mb-4\">
+                        <i class=\"fas fa-star text-yellow-400\"></i>
+                        <i class=\"fas fa-star text-yellow-400\"></i>
+                        <i class=\"fas fa-star text-yellow-400\"></i>
+                        <i class=\"fas fa-star text-yellow-400\"></i>
+                        <i class=\"fas fa-star text-yellow-400\"></i>
+                    </div>
+                    <p class=\"text-gray-700 mb-6 italic\">
+                        \"Luna este foarte pretențioasă, dar aici a găsit îngrijirea perfectă. Recomand cu încredere!\"
+                    </p>
+                    <div class=\"flex items-center space-x-4 pt-4 border-t border-gray-100\">
+                        <img src=\"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop\" 
+                             alt=\"Andrei Ionescu\" 
+                             class=\"w-12 h-12 rounded-full object-cover\">
+                        <div>
+                            <p class=\"font-bold text-gray-900\">Andrei Ionescu</p>
+                            <p class=\"text-sm text-cyan-600\">Luna (Pisică Persană)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class=\"card bg-white rounded-2xl p-6 border-2 border-gray-100\">
+                    <div class=\"flex mb-4\">
+                        <i class=\"fas fa-star text-yellow-400\"></i>
+                        <i class=\"fas fa-star text-yellow-400\"></i>
+                        <i class=\"fas fa-star text-yellow-400\"></i>
+                        <i class=\"fas fa-star text-yellow-400\"></i>
+                        <i class=\"fas fa-star text-yellow-400\"></i>
+                    </div>
+                    <p class=\"text-gray-700 mb-6 italic\">
+                        \"Cele mai bune servicii de toaletaj! Bella arată mereu impecabil. Mulțumim pentru grija deosebită!\"
+                    </p>
+                    <div class=\"flex items-center space-x-4 pt-4 border-t border-gray-100\">
+                        <img src=\"https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop\" 
+                             alt=\"Elena Dumitrescu\" 
+                             class=\"w-12 h-12 rounded-full object-cover\">
+                        <div>
+                            <p class=\"font-bold text-gray-900\">Elena Dumitrescu</p>
+                            <p class=\"text-sm text-cyan-600\">Bella (Bichon)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer id=\"contact\" class=\"bg-gray-900 text-white pt-16 pb-8\">
+        <div class=\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8\">
+            <div class=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12\">
+                <!-- Brand -->
+                <div>
+                    <div class=\"flex items-center space-x-2 mb-4\">
+                        <div class=\"w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center\">
+                            <i class=\"fas fa-paw text-white text-2xl\"></i>
+                        </div>
+                        <div>
+                            <h3 class=\"text-xl font-bold\">Blănoșii Fericiți</h3>
+                            <p class=\"text-xs text-cyan-400\">Toaletaj Profesional</p>
+                        </div>
+                    </div>
+                    <p class=\"text-gray-400 text-sm\">
+                        Îngrijim animalele tale de companie cu dragoste și profesionalism de peste 10 ani.
+                    </p>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class=\"text-lg font-bold mb-4\">Contact</h4>
+                    <div class=\"space-y-3\">
+                        <div class=\"flex items-start space-x-3\">
+                            <i class=\"fas fa-map-marker-alt text-cyan-400 mt-1\"></i>
+                            <p class=\"text-gray-400 text-sm\">
+                                Str. Florilor nr. 45<br>
+                                București, Sector 2<br>
+                                România
+                            </p>
+                        </div>
+                        <div class=\"flex items-center space-x-3\">
+                            <i class=\"fas fa-phone text-cyan-400\"></i>
+                            <a href=\"tel:+40721234567\" class=\"text-gray-400 text-sm hover:text-cyan-400 transition-colors\">
+                                +40 721 234 567
+                            </a>
+                        </div>
+                        <div class=\"flex items-center space-x-3\">
+                            <i class=\"fas fa-envelope text-cyan-400\"></i>
+                            <a href=\"mailto:contact@blanosiifericit.ro\" class=\"text-gray-400 text-sm hover:text-cyan-400 transition-colors\">
+                                contact@blanosiifericit.ro
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Program -->
+                <div>
+                    <h4 class=\"text-lg font-bold mb-4\">Program</h4>
+                    <div class=\"space-y-3 text-gray-400 text-sm\">
+                        <div>
+                            <p class=\"font-semibold text-white mb-1\">Luni - Vineri</p>
+                            <p>09:00 - 18:00</p>
+                        </div>
+                        <div>
+                            <p class=\"font-semibold text-white mb-1\">Sâmbătă</p>
+                            <p>10:00 - 16:00</p>
+                        </div>
+                        <div>
+                            <p class=\"font-semibold text-white mb-1\">Duminică</p>
+                            <p>Închis</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Social -->
+                <div>
+                    <h4 class=\"text-lg font-bold mb-4\">Urmărește-ne</h4>
+                    <div class=\"flex space-x-4 mb-6\">
+                        <a href=\"https://facebook.com\" target=\"_blank\" class=\"w-10 h-10 bg-gray-800 hover:bg-cyan-500 rounded-full flex items-center justify-center transition-colors\">
+                            <i class=\"fab fa-facebook-f\"></i>
+                        </a>
+                        <a href=\"https://instagram.com\" target=\"_blank\" class=\"w-10 h-10 bg-gray-800 hover:bg-cyan-500 rounded-full flex items-center justify-center transition-colors\">
+                            <i class=\"fab fa-instagram\"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class=\"border-t border-gray-800 pt-8 text-center\">
+                <p class=\"text-gray-400 text-sm\">
+                    © 2025 Blănoșii Fericiți. Toate drepturile rezervate.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
+"
+Observation: Create successful: /app/blanosii-fericiti-standalone.html
